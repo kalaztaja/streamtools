@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div>
+			<label for="kilta">Nykyinen kilta:</label>
+			<input id="kilta" type="text" value=""/>
+        </div>
+        <div>
+			<label for="kiltaLabel">KiltaLabel</label>
+			<input id="kiltaLabel" type="text" value=""/>
+		</div>
+		<div>
+			<label for="seuraavaksi">Seuraava kilta:</label>
+			<input id="seuraavaksi" type="text" value=""/>
+        </div>
+        <div>
+			<label for="seuraavaksiLabel">Seuraava label</label>
+			<input id="seuraavaksiLabel" type="text" value=""/>
+		</div>
+		<div>
+			<label for="fillertext">Fillertext:</label>
+			<input id="fillertext" type="text" value=""/>
+        </div>
+        <div>
+			<label for="fillertextLabel">FillertextLabel</label>
+			<input id="fillertextLabel" type="text" value=""/>
+		</div>
+        <button id="updateButton">Päivitä</button>
+		</div>
+	<script>
+		const updateButton = document.querySelector("#updateButton")
+
+		const kiltaInput = document.querySelector('#kilta')
+		const seuraavaksiInput = document.querySelector('#seuraavaksi')
+        const fillertextInput = document.querySelector('#fillertext')
+        const kiltaLabelInput = document.querySelector('#kiltaLabel')
+		const seuraavaksiLabelInput = document.querySelector('#seuraavaksiLabel')
+        const fillertextLabelInput = document.querySelector('#fillertextLabel')
+        
+        const kiltaReplicant = nodecg.Replicant('kilta')
+		const seuraavaksiReplicant = nodecg.Replicant('seuraavaksi')
+		const fillertextReplicant = nodecg.Replicant('fillertext')
+        const kiltaLabelReplicant = nodecg.Replicant('kiltaLabel')
+        const seuraavaksiLabelReplicant = nodecg.Replicant('seuraavaksiLabel')
+        const fillertextLabelReplicant = nodecg.Replicant('fillertextLabel')
+    
+		updateButton.onclick = () => {
+			kiltaReplicant.value = kiltaInput.value
+			seuraavaksiReplicant.value = seuraavaksiInput.value
+            fillertextReplicant.value = fillertextInput.value
+            kiltaLabelReplicant.value = kiltaLabelInput.value
+			seuraavaksiLabelReplicant.value = seuraavaksiLabelInput.value
+			fillertextLabelReplicant.value = fillertextLabelInput.value
+		}
+	</script>
+</body>
+</html>
